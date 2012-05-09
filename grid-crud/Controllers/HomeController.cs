@@ -23,7 +23,7 @@ namespace Kendo.Mvc.Grid.CRUD.Controllers
         {
             var result = new List<Product>();
 
-            using (var northwind = new Northwind())
+            using (var northwind = new NorthwindEntities())
             {
                 //Iterate all created products which are posted by the Kendo Grid
                 foreach (var productViewModel in products)
@@ -68,7 +68,7 @@ namespace Kendo.Mvc.Grid.CRUD.Controllers
         [HttpPost]
         public ActionResult Read()
         {
-            using (var northwind = new Northwind())
+            using (var northwind = new NorthwindEntities())
             {
                 var products = northwind.Products
                     // Use a view model to avoid serializing internal Entity Framework properties as JSON
@@ -93,7 +93,7 @@ namespace Kendo.Mvc.Grid.CRUD.Controllers
         [HttpPost]
         public ActionResult Update(IEnumerable<ProductViewModel> products)
         {
-            using (var northwind = new Northwind())
+            using (var northwind = new NorthwindEntities())
             {
                 //Iterate all updated products which are posted by the Kendo Grid
                 foreach (var productViewModel in products)
@@ -129,7 +129,7 @@ namespace Kendo.Mvc.Grid.CRUD.Controllers
         [HttpPost]
         public ActionResult Destroy(IEnumerable<ProductViewModel> products)
         {
-            using (var northwind = new Northwind())
+            using (var northwind = new NorthwindEntities())
             {
                 //Iterate all destroyed products which are posted by the Kendo Grid
                 foreach (var productViewModel in products)

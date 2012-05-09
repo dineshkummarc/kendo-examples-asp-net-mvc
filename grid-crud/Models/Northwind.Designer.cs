@@ -24,32 +24,32 @@ namespace Kendo.Mvc.Grid.CRUD.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class Northwind : ObjectContext
+    public partial class NorthwindEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new Northwind object using the connection string found in the 'Northwind' section of the application configuration file.
+        /// Initializes a new NorthwindEntities object using the connection string found in the 'NorthwindEntities' section of the application configuration file.
         /// </summary>
-        public Northwind() : base("name=Northwind", "Northwind")
+        public NorthwindEntities() : base("name=NorthwindEntities", "NorthwindEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new Northwind object.
+        /// Initialize a new NorthwindEntities object.
         /// </summary>
-        public Northwind(string connectionString) : base(connectionString, "Northwind")
+        public NorthwindEntities(string connectionString) : base(connectionString, "NorthwindEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new Northwind object.
+        /// Initialize a new NorthwindEntities object.
         /// </summary>
-        public Northwind(EntityConnection connection) : base(connection, "Northwind")
+        public NorthwindEntities(EntityConnection connection) : base(connection, "NorthwindEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -178,6 +178,54 @@ namespace Kendo.Mvc.Grid.CRUD.Models
         private global::System.String _ProductName;
         partial void OnProductNameChanging(global::System.String value);
         partial void OnProductNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SupplierID
+        {
+            get
+            {
+                return _SupplierID;
+            }
+            set
+            {
+                OnSupplierIDChanging(value);
+                ReportPropertyChanging("SupplierID");
+                _SupplierID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SupplierID");
+                OnSupplierIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SupplierID;
+        partial void OnSupplierIDChanging(Nullable<global::System.Int32> value);
+        partial void OnSupplierIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CategoryID
+        {
+            get
+            {
+                return _CategoryID;
+            }
+            set
+            {
+                OnCategoryIDChanging(value);
+                ReportPropertyChanging("CategoryID");
+                _CategoryID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CategoryID");
+                OnCategoryIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CategoryID;
+        partial void OnCategoryIDChanging(Nullable<global::System.Int32> value);
+        partial void OnCategoryIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

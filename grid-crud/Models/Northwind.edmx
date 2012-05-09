@@ -14,8 +14,10 @@
           </Key>
           <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
           <Property Name="QuantityPerUnit" Type="nvarchar" MaxLength="20" />
-          <Property Name="UnitPrice" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="UnitPrice" Type="money" />
           <Property Name="UnitsInStock" Type="smallint" />
           <Property Name="UnitsOnOrder" Type="smallint" />
           <Property Name="ReorderLevel" Type="smallint" />
@@ -26,7 +28,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NorthwindModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="Northwind" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Products" EntityType="NorthwindModel.Product" />
         </EntityContainer>
         <EntityType Name="Product">
@@ -35,8 +37,10 @@
           </Key>
           <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="CategoryID" Type="Int32" />
           <Property Name="QuantityPerUnit" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
-          <Property Name="UnitPrice" Type="Decimal" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="UnitsInStock" Type="Int16" />
           <Property Name="UnitsOnOrder" Type="Int16" />
           <Property Name="ReorderLevel" Type="Int16" />
@@ -47,10 +51,12 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="Northwind">
+        <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
           <EntitySetMapping Name="Products"><EntityTypeMapping TypeName="NorthwindModel.Product"><MappingFragment StoreEntitySet="Products">
             <ScalarProperty Name="ProductID" ColumnName="ProductID" />
             <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+            <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+            <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
             <ScalarProperty Name="QuantityPerUnit" ColumnName="QuantityPerUnit" />
             <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
             <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
@@ -79,7 +85,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Northwind">
-        <EntityTypeShape EntityType="NorthwindModel.Product" Width="1.5" PointX="0.75" PointY="0.75" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="NorthwindModel.Product" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>
